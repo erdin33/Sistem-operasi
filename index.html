@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Process Scheduling Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="navbar-container">
+        <div class="nav-tabs">
+            <a href="pembelajaran.html" class="nav-tab active">Round Robin</a>
+            <a href="pembelajaran.html" class="nav-tab">FCFS</a>
+            <a href="pembelajaram.html" class="nav-tab">SJF</a>
+            <a href="pembelajaran.html" class="nav-tab">Perbandingan</a>
+            <a href="index.html" class="nav-tab">Simulasi</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>CPU Process Scheduling Simulator</h1>
+        
+        <div class="input-section">
+            <h2>Process Configuration</h2>
+            <div class="form-group">
+                <label for="process-count">Number of Processes:</label>
+                <input type="number" id="process-count" min="1" max="10" value="4">
+                <button id="generate-table">Generate Table</button>
+            </div>
+            
+            <div id="process-input-container">
+                <table id="process-table">
+                    <thead>
+                        <tr>
+                            <th>Process</th>
+                            <th>Burst Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="process-tbody">
+                        <!-- Processes will be added here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="form-group">
+                <label for="quantum">Time Quantum (for Round Robin):</label>
+                <input type="number" id="quantum" min="1" value="2">
+            </div>
+            
+            <button id="calculate-button">Run Simulation</button>
+        </div>
+        
+        <div id="initial-gantt" class="results-section" style="display: none;">
+            <h2>Initial Process Order</h2>
+            <div class="gantt-chart-container">
+                <div class="gantt-chart" id="initial-gantt-chart"></div>
+            </div>
+        </div>
+        
+        <div class="results-section" id="algorithm-results" style="display: none;">
+            <div class="algorithm-result" id="fcfs-result">
+                <h2>First Come First Serve (FCFS)</h2>
+                <div class="gantt-chart-container">
+                    <h3>Gantt Chart</h3>
+                    <div class="gantt-chart" id="fcfs-gantt-chart"></div>
+                </div>
+                <div class="metrics">
+                    <p>Average Waiting Time: <span id="fcfs-avg-waiting"></span></p>
+                    <p>Average Turnaround Time: <span id="fcfs-avg-turnaround"></span></p>
+                </div>
+            </div>
+            
+            <div class="algorithm-result" id="sjf-result">
+                <h2>Shortest Job First (SJF)</h2>
+                <div class="gantt-chart-container">
+                    <h3>Gantt Chart</h3>
+                    <div class="gantt-chart" id="sjf-gantt-chart"></div>
+                </div>
+                <div class="metrics">
+                    <p>Average Waiting Time: <span id="sjf-avg-waiting"></span></p>
+                    <p>Average Turnaround Time: <span id="sjf-avg-turnaround"></span></p>
+                </div>
+            </div>
+            
+            <div class="algorithm-result" id="rr-result">
+                <h2>Round Robin (RR)</h2>
+                <div class="gantt-chart-container">
+                    <h3>Gantt Chart</h3>
+                    <div class="gantt-chart" id="rr-gantt-chart"></div>
+                </div>
+                <div class="metrics">
+                    <p>Average Waiting Time: <span id="rr-avg-waiting"></span></p>
+                    <p>Average Turnaround Time: <span id="rr-avg-turnaround"></span></p>
+                </div>
+            </div>
+            
+            <div class="comparison-table">
+                <h2>Algorithm Comparison</h2>
+                <table id="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Average Waiting Time</th>
+                            <th>Average Turnaround Time</th>
+                            <th>Ranking</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comparison-tbody">
+                        <!-- Comparison results will be displayed here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
