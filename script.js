@@ -536,7 +536,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   });
                   
                   
-              }, 3000); // Waktu untuk animasi pergeseran
+              }, 1000); // Waktu untuk animasi pergeseran
               
           }, delay + 1000);
       }

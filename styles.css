@@ -13,56 +13,46 @@ body {
 }
 
 .navbar-container {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    padding: 0.5rem 1rem;
-    margin: 1rem auto;
-    max-width: 960px;
-}
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 0.8rem 1.2rem;
+            margin: 1rem auto;
+            max-width: 1000px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
 
-.nav-tabs {
-    display: flex;
-    justify-content: flex-start;
-    border-bottom: 2px solid #eee;
-}
+        .nav-tabs {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
 
-.nav-tab {
-    padding: 0.75rem 1.5rem;
-    margin-right: 1rem;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    position: relative;
-    transition: color 0.2s ease;
-}
+        .nav-tab {
+            padding: 0.85rem 1.5rem;
+            margin-right: 0.5rem;
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-.nav-tab:hover {
-    color: #2f5bff;
-}
+        .nav-tab:hover {
+            color: #2f5bff;
+            background-color: #f5f8ff;
+            transform: translateY(-2px);
+        }
 
-.nav-tab.active {
-    color: #2f5bff;
-}
-
-.nav-tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #2f5bff;
-    border-radius: 2px;
-}
-
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
+        .nav-tab.active {
+            color: #2f5bff;
+            background-color: #eef2ff;
+            box-shadow: 0 2px 8px rgba(47, 91, 255, 0.15);
+        }
 /* Header Styling */
 h1 {
     text-align: center;
@@ -242,7 +232,7 @@ tr:hover {
     display: flex;
     overflow-x: auto;
     overflow-y: visible; /* Penting: izinkan overflow vertikal */
-    margin: 40px 0 30px 0;
+    margin: 40px 0 0px 0;
     padding-top: 20px;
     min-height: 70px;
     position: relative;
@@ -258,7 +248,7 @@ tr:hover {
     overflow-x: auto;
     min-height: 70px;
     position: relative;
-    margin: 40px 0 30px 0;
+    margin: 0px 0 30px 20px;
     visibility: visible !important;
     opacity: 1 !important;
     padding-bottom: 30px; /* Space for labels */
@@ -267,6 +257,7 @@ tr:hover {
 /* Gantt Block Styling */
 .gantt-block {
     height: 60px;
+    margin-left: 10px;
     min-width: 60px;
     display: flex;
     justify-content: center;
@@ -289,6 +280,7 @@ tr:hover {
 /* Block in Motion */
 .moving-block {
     z-index: 100;
+    margin-left: 20%;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -389,8 +381,9 @@ tr:hover {
 /* Information Text */
 .info-text {
     text-align: center;
-    margin: 15px 0;
+    margin: 80px 0;
     font-weight: 600;
+    position: absolute;
     color: #3a4dc4;
     padding: 8px;
     background-color: #e6ecff;
@@ -432,6 +425,7 @@ html {
 .final-processes-container::-webkit-scrollbar-track {
     background: #f0f5ff;
     border-radius: 4px;
+
 }
 
 .gantt-chart::-webkit-scrollbar-thumb,

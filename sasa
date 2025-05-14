@@ -1,0 +1,38 @@
+.example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .example-table th, .example-table td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: center;
+        }
+        .example-table th {
+            background-color: #f8f9fa;
+        }
+.algorithm-steps {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            background-color: #e9ecef;
+            margin: 0 5px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .step::after {
+            content: "→";
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-weight: bold;
+        }
+        .step:last-child::after {
+            content: "";
+        }
