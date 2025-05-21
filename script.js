@@ -448,7 +448,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   const rect = block.getBoundingClientRect();
                   processPositions[processName] = {
                       initial: {
-                          left: rect.left,
+                          left: rect.left - 100,
                           width: rect.width
                       }
                   };
@@ -464,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   
                   if (processPositions[processName]) {
                       processPositions[processName].final = {
-                          left: rect.left - 400,
+                          left: rect.left - 500,
                           width: rect.width
                       };
                   }
