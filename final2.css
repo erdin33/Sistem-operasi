@@ -337,6 +337,8 @@ tr:hover {
     padding-bottom: 30px; /* Ruang untuk label waktu */
 }
 
+
+
 /* Process Containers */
 .initial-processes-container,
 .final-processes-container {
@@ -344,7 +346,7 @@ tr:hover {
     overflow-x: auto;
     min-height: 70px;
     position: relative;
-    margin: 0px 0 30px 20px;
+    margin: 10px 0 30px 20px;
     visibility: visible !important;
     opacity: 1 !important;
     padding-bottom: 30px; /* Space for labels */
@@ -353,7 +355,8 @@ tr:hover {
 /* Gantt Block Styling */
 .gantt-block {
     height: 60px;
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-top: 10px;
     min-width: 60px;
     display: flex;
     justify-content: center;
