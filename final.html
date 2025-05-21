@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panduan Edukasi CPU Scheduling</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="materi.css">
+    <link rel="stylesheet" href="final2.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="navbar-container">
         <div class="nav-tabs">
-            <div class="nav-tab" onclick="window.location.href='index.html'">Simulasi</div>
-            <div class="nav-tab active" onclick="switchTab('tab-robin')">Round Robin</div>
+            <div class="nav-tab active" onclick="switchTab('tab-simulasi')">Simulasi</div>
+            <div class="nav-tab" onclick="switchTab('tab-robin')">Round Robin</div>
             <div class="nav-tab" onclick="switchTab('tab-fcfs')">FCFS</div>
             <div class="nav-tab" onclick="switchTab('tab-sjf')">SJF</div>
             <div class="nav-tab" onclick="switchTab('tab-comparison')">Perbandingan</div>
@@ -20,10 +19,104 @@
     </div>
     
     <div class="container">
-        <h1>Panduan Edukasi CPU Scheduling</h1>
+        <h1>CPU Process Scheduling Simulator</h1>
         
+        <!-- Tab Simulasi -->
+        <div id="tab-simulasi" class="tab-content active results-section">
+            <div class="input-section">
+                <h2>Process Configuration</h2>
+                <div class="form-group">
+                    <label for="process-count">Number of Processes:</label>
+                    <input type="number" id="process-count" min="1" max="10" value="4">
+                    <button id="generate-table">Generate Table</button>
+                </div>
+                
+                <div id="process-input-container">
+                    <table id="process-table">
+                        <thead>
+                            <tr>
+                                <th>Process</th>
+                                <th>Burst Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="process-tbody">
+                            <!-- Processes will be added here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="form-group">
+                    <label for="quantum">Time Quantum (for Round Robin):</label>
+                    <input type="number" id="quantum" min="1" value="2">
+                </div>
+                
+                <button id="calculate-button">Run Simulation</button>
+            </div>
+            
+            <div id="initial-gantt" class="results-section" style="display: none;">
+                <h2>Initial Process Order</h2>
+                <div class="gantt-chart-container">
+                    <div class="gantt-chart" id="initial-gantt-chart"></div>
+                </div>
+            </div>
+            
+            <div class="results-section" id="algorithm-results" style="display: none;">
+                <div class="algorithm-result" id="fcfs-result">
+                    <h2>First Come First Serve (FCFS)</h2>
+                    <div class="gantt-chart-container">
+                        <h3>Gantt Chart</h3>
+                        <div class="gantt-chart" id="fcfs-gantt-chart"></div>
+                    </div>
+                    <div class="metrics">
+                        <p>Average Waiting Time: <span id="fcfs-avg-waiting"></span></p>
+                        <p>Average Turnaround Time: <span id="fcfs-avg-turnaround"></span></p>
+                    </div>
+                </div>
+                
+                <div class="algorithm-result" id="sjf-result">
+                    <h2>Shortest Job First (SJF)</h2>
+                    <div class="gantt-chart-container">
+                        <h3>Gantt Chart</h3>
+                        <div class="gantt-chart" id="sjf-gantt-chart"></div>
+                    </div>
+                    <div class="metrics">
+                        <p>Average Waiting Time: <span id="sjf-avg-waiting"></span></p>
+                        <p>Average Turnaround Time: <span id="sjf-avg-turnaround"></span></p>
+                    </div>
+                </div>
+                
+                <div class="algorithm-result" id="rr-result">
+                    <h2>Round Robin (RR)</h2>
+                    <div class="gantt-chart-container">
+                        <h3>Gantt Chart</h3>
+                        <div class="gantt-chart" id="rr-gantt-chart"></div>
+                    </div>
+                    <div class="metrics">
+                        <p>Average Waiting Time: <span id="rr-avg-waiting"></span></p>
+                        <p>Average Turnaround Time: <span id="rr-avg-turnaround"></span></p>
+                    </div>
+                </div>
+                
+                <div class="comparison-table">
+                    <h2>Algorithm Comparison</h2>
+                    <table id="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Algorithm</th>
+                                <th>Average Waiting Time</th>
+                                <th>Average Turnaround Time</th>
+                                <th>Ranking</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparison-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
         <!-- Tab Round Robin -->
-        <div id="tab-robin" class="tab-content active results-section">
+        <div id="tab-robin" class="tab-content results-section">
             <div class="algorithm-result">
                 <h2>Algoritma Round Robin (RR)</h2>
                 <div class="card-body">
@@ -505,11 +598,13 @@
                         <li>Keadilan pembagian CPU di antara proses-proses</li>
                     </ul>
                     
-                    <button id="calculate-button" onclick="window.location.href='index.html'">Coba Simulasi</button>
+                    <button id="calculate-button" onclick="switchTab('tab-simulasi')">Coba Simulasi</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 
     <script>
         function switchTab(tabId) {

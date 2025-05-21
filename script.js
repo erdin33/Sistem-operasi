@@ -371,13 +371,13 @@ document.addEventListener('DOMContentLoaded', function() {
           initialContainer.appendChild(processBlock);
       });
       
-      // Buat blok untuk hasil algoritma
+      // membuat blok untuk hasil algoritma
       ganttChart.forEach((block, index) => {
           const ganttBlock = document.createElement('div');
           ganttBlock.className = 'gantt-block result-block';
           ganttBlock.style.backgroundColor = colors[block.processName] || '#999999';
           ganttBlock.style.width = `${(block.endTime - block.startTime) * 30}px`;
-          ganttBlock.style.opacity = '0'; // Sembunyikan dulu
+          ganttBlock.style.opacity = '0'; // disembunyikan dulu
           
           // Label proses
           const processLabel = document.createElement('div');
@@ -464,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   
                   if (processPositions[processName]) {
                       processPositions[processName].final = {
-                          left: rect.left,
+                          left: rect.left - 400,
                           width: rect.width
                       };
                   }
@@ -495,13 +495,13 @@ document.addEventListener('DOMContentLoaded', function() {
                       // Animasi pergeseran
                       setTimeout(() => {
                           // Animasi perubahan posisi dan ukuran
-                          movingBlock.style.transition = 'left 1.5s ease, width 1.5s ease';
+                          movingBlock.style.transition = 'left 1.5s ease','width 1.5s ease';
                           movingBlock.style.left = `${pos.final.left - initialContainer.getBoundingClientRect().left}px`;
                           movingBlock.style.width = `${pos.final.width}px`;
                           
                           // Highlight selama bergeser
                           movingBlock.classList.add('active-block');
-                      }, 500);
+                      }, 700);
                   }
               });
               
@@ -531,12 +531,12 @@ document.addEventListener('DOMContentLoaded', function() {
                           
                           setTimeout(() => {
                               block.classList.remove('active-block');
-                          }, 1000);
-                      }, i * 1000);
+                          }, 2000);
+                      }, i * 2000);
                   });
                   
                   
-              }, 1000); // Waktu untuk animasi pergeseran
+              }, 2000); // Waktu untuk animasi pergeseran
               
           }, delay + 1000);
       }
