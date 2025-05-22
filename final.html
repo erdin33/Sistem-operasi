@@ -476,7 +476,6 @@
                                 <th>Kriteria</th>
                                 <th>FCFS</th>
                                 <th>SJF</th>
-                                <th>Priority</th>
                                 <th>Round Robin</th>
                             </tr>
                         </thead>
@@ -485,34 +484,29 @@
                                 <td>Jenis</td>
                                 <td>Non-preemptive</td>
                                 <td>Keduanya (SJF & SRTF)</td>
-                                <td>Keduanya</td>
                                 <td>Preemptive</td>
                             </tr>
                             <tr>
                                 <td>Kriteria Seleksi</td>
                                 <td>Urutan kedatangan</td>
                                 <td>Waktu CPU terpendek</td>
-                                <td>Nilai prioritas tertinggi</td>
                                 <td>Giliran dengan quantum</td>
                             </tr>
                             <tr>
                                 <td>Waktu Tunggu</td>
                                 <td>Panjang</td>
                                 <td>Minimal (optimal)</td>
-                                <td>Bervariasi</td>
                                 <td>Sedang</td>
                             </tr>
                             <tr>
                                 <td>Throughput</td>
                                 <td>Rendah</td>
                                 <td>Tinggi</td>
-                                <td>Sedang-Tinggi</td>
                                 <td>Sedang</td>
                             </tr>
                             <tr>
                                 <td>Kompleksitas</td>
                                 <td>Sangat Rendah</td>
-                                <td>Sedang</td>
                                 <td>Sedang</td>
                                 <td>Rendah</td>
                             </tr>
@@ -520,13 +514,11 @@
                                 <td>Overhead</td>
                                 <td>Minimal</td>
                                 <td>Rendah</td>
-                                <td>Rendah</td>
                                 <td>Tinggi (context switch)</td>
                             </tr>
                             <tr>
                                 <td>Starvation</td>
                                 <td>Tidak</td>
-                                <td>Ya</td>
                                 <td>Ya</td>
                                 <td>Tidak</td>
                             </tr>
@@ -534,7 +526,6 @@
                                 <td>Cocok untuk</td>
                                 <td>Batch system</td>
                                 <td>Batch system</td>
-                                <td>Real-time system</td>
                                 <td>Interactive system</td>
                             </tr>
                         </tbody>
@@ -565,12 +556,7 @@
                                 <td>12</td>
                                 <td>P4 → P1 → P3 → P2</td>
                             </tr>
-                            <tr>
-                                <td>Priority</td>
-                                <td>8</td>
-                                <td>13.75</td>
-                                <td>P4 → P2 → P1 → P3</td>
-                            </tr>
+                            
                             <tr>
                                 <td>Round Robin (q=2)</td>
                                 <td>11.75</td>
@@ -584,7 +570,6 @@
                     <ul>
                         <li><strong>Batch Processing:</strong> SJF (untuk throughput maksimal)</li>
                         <li><strong>Interactive Systems:</strong> Round Robin (untuk response time yang baik)</li>
-                        <li><strong>Real-time Systems:</strong> Priority Scheduling (untuk menangani proses kritis)</li>
                         <li><strong>Embedded Systems:</strong> FCFS atau SJF (untuk overhead rendah)</li>
                     </ul>
                     
